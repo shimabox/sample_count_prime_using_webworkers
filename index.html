@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>Web Workers を使って素数を数える</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    h1 {
+      font-size: 16px;
+    }
+
+    .row {
+      margin-bottom: 10px;
+    }
+    .row > label > span {
+      margin-left: 20px
+    }
+    .text-box {
+      margin-bottom: 10px;
+    }
+
+    #loading {
+      display: none;
+      padding: 15px 0;
+      margin-left: -5px;
+    }
+    #result-area {
+      display: none;
+    }
+    #result-area > p {
+      margin: 10px 0;
+    }
+    #exec {
+      cursor: pointer;
+      height: 25px;
+      width: 100px;
+      border: 0;
+      border-radius: 5px;
+      background-color: rgba(211, 211, 211, 0.8);
+    }
+  </style>
+</head>
+<body id="body">
+<h1>Web Workers を使って素数を数える</h1>
+<div>
+  <div class="row">
+    <input type="radio" name="choice" value="1" id="use-webworkers" checked="checked">
+    <label for="use-webworkers">Web Workersを使う<br><span>(use web workers)</span></label>
+  </div>
+  <div class="row">
+    <input type="radio" name="choice" value="0" id="not-use-webworkers">
+    <label for="not-use-webworkers">Web Workersを使わない<br><span>(not use web workers)</span></label>
+  </div>
+  <div class="row">
+    <input type="radio" name="choice" value="2" id="not-work-webworkers">
+    <label for="not-work-webworkers">Web Workersを使うけどchrome(PC, Ver.45)だと動かない<br>
+      <span>(use web workers ※but not work in chrome(PC, Ver.45))</span>
+    </label>
+  </div>
+  <div class="text-box">
+    <input type="text" name="target" value="1000000" id="target">&nbsp;までの素数を数える(count the prime)
+  </div>
+  <div>
+    <input type="button" value="実行" name="exec" id="exec">
+  </div>
+</div>
+<div id="loading">
+  <img src="./img/loading.gif" alt="loading...">
+</div>
+<div id="result-area">
+  <p>結果&nbsp;&nbsp;<a href="#last">下へ</a></p>
+  <div id="result"></div>
+  <a href="#body" id="last">上へ</a>
+</div>
+<script src="./js/worker.js"></script>
+<script src="./js/script.js"></script>
+</body>
+</html>

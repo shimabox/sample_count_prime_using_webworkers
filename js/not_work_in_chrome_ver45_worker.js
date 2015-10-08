@@ -9,7 +9,7 @@ var isPrime = function (target) {
   return true;
 };
 
-// varをつけるとchrome(pc, ver.45)だと動かない
+// varをつけるとchrome(pc, ver.45), IE10, IE11 だと動かない
 var onmessage = function (e) {
   var val = e.data;
   var ret = '';
